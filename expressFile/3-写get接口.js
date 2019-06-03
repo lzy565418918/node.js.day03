@@ -24,7 +24,6 @@ app.get('/api/hero/info', (req, res) => {
     const {
         name
     } = req.query
-    console.log(req.query);
     
     //自己写一个返回的数据,并判断一下
     if (name == '提莫') {
@@ -32,7 +31,7 @@ app.get('/api/hero/info', (req, res) => {
         const backData = {
             title: '迅捷斥候',
             name,
-            story: `团战可以输，${req.query.name}必须死`
+            story: `团战可以输，${name}必须死`
         }
         res.send(backData)
 
@@ -40,7 +39,7 @@ app.get('/api/hero/info', (req, res) => {
         //返回的数据
         const backData = {
             code: 400,
-            msg: `没有找到${req.query.name} 请重新输入`
+            msg: `没有找到${name} 请重新输入`
         }
         res.send(backData)
 
